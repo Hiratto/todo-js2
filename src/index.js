@@ -15,10 +15,12 @@ const onClickAdd = () => {
   console.log(li);
 
   // button（完了）タグ生成
-  const conpleteButton = document.createElement("button");
-  conpleteButton.innerText = "完了";
-  conpleteButton.addEventListener("click", () => {
-    alert("完了");
+  const completeButton = document.createElement("button");
+  completeButton.innerText = "完了";
+  completeButton.addEventListener("click", () => {
+    // 押された完了ボタンの親タグ（div)を未完了リストから削除
+    const deleteTaret = completeButton.parentNode;
+    document.getElementById("incomplete-list").removeChild(deleteTaret);
   });
 
   // button（削除）タグ生成
@@ -32,7 +34,7 @@ const onClickAdd = () => {
 
   // divタグの子要素に各要素を設定
   div.appendChild(li);
-  div.appendChild(conpleteButton);
+  div.appendChild(completeButton);
   div.appendChild(deleteButton);
 
   // 未完了のリストに追加
